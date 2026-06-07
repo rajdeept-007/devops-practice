@@ -1,8 +1,23 @@
-name: my first workflow
-on : push
+# name: my first workflow
+# on : push
+# jobs:
+#     first-job:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: print hello
+#               run: echo "hello world"
+            
+
+
+name: second workflow
+on: push
 jobs:
-    first-job:
+    second-job:
         runs-on: ubuntu-latest
         steps:
-            - name: print hello
-              run: echo "hello world"
+            - name: download repo
+              uses: actions/checkout@v4
+            - name: show file
+              run: ls
+            - name: show present directory
+              run: pwd
