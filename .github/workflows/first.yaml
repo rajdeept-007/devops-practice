@@ -9,15 +9,30 @@
             
 
 
-name: second workflow
+# name: second workflow
+# on: push
+# jobs:
+#     second-job:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: download repo
+#               uses: actions/checkout@v4
+#             - name: show file
+#               run: ls
+#             - name: show present directory
+#               run: pwd
+
+
+name: third workflow
 on: push
 jobs:
-    second-job:
+    build:
         runs-on: ubuntu-latest
         steps:
-            - name: download repo
+            - name: checkout repo
               uses: actions/checkout@v4
-            - name: show file
-              run: ls
-            - name: show present directory
-              run: pwd
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print test message
+              run: echo "hello this is a test message"
