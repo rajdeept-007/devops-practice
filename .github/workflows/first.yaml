@@ -23,7 +23,22 @@
 #               run: pwd
 
 
-name: third workflow
+# name: third workflow
+# on: push
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: checkout repo
+#               uses: actions/checkout@v4
+#     test:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: print test message
+#               run: echo "hello this is a test message"
+
+
+name: fourth workflow
 on: push
 jobs:
     build:
@@ -32,7 +47,15 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v4
     test:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: print test message
               run: echo "hello this is a test message"
+
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: print test message
+              run: echo "hello this is a deploy message"
