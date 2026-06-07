@@ -133,7 +133,7 @@
 #               run: docker push ${{secrets.DOCKER_USERNAME}}/java-app
 
 
-name: seventh workflow
+name: eighth workflow
 on: push
 jobs:
     build:
@@ -153,7 +153,7 @@ jobs:
                 - name: show operating system
                   run: echo ${{matrix.os}}
                 - name: java version
-                  run: run java -version
+                  run: java -version
                 - name: compile java application
                   run: javac App.java
                 - name: run java application
